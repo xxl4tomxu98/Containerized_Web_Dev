@@ -3,12 +3,14 @@
     "*:80": {"pass": "routes"}
   },
   "routes": [
-    {"action": { "pass": "applications/php"}}
+    {"match": {"uri": "*/favicon.ico"}, "action": {"return": 200}},
+    {"action": { "pass": "applications/app"}}
   ],
   "applications": {
-    "php": {
+    "app": {
       "type": "php",
-      "root": "/usr/share/unit/"
+      "root": "/usr/share/unit/",
+      "index": "index.php"
     }
   }
 }
